@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Products = () => {
-  return <div>Products</div>;
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch("https://dummyjson.com/products")
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
+
+  return (
+    <div>
+      <h2>Products</h2>
+      <div>
+        {products.map((product) => (
+          <div>
+            <Link to={`products/${product.id}`}>
+              <img src={product.thumbnail} alt={product.title} />
+              <h3>{product.title}</h3>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Products;
