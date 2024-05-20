@@ -7,17 +7,17 @@ import Breadcrumbs from "./components/Breadcrumbs";
 
 function App() {
   return (
-    <>
-      <h1>BreadCrumb</h1>
-      <Router>
+    <Router>
+      <div className="app">
+        <h1>The store</h1>
         <Breadcrumbs />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
         </Routes>
-      </Router>
-    </>
+      </div>
+    </Router>
   );
 }
 

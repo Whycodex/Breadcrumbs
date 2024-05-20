@@ -12,9 +12,9 @@ const Products = () => {
   return (
     <div>
       <h2>Products</h2>
-      <div>
+      <div className="product-grid">
         {products.map((product) => (
-          <div>
+          <div key={product.id} className="product-card">
             <Link to={`products/${product.id}`}>
               <img src={product.thumbnail} alt={product.title} />
               <h3>{product.title}</h3>

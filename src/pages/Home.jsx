@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [trendingProducts, setTrendingProducts] = useState([]);
-  
+
   useEffect(() => {
     fetch("https://dummyjson.com/products")
       .then((response) => response.json())
@@ -17,9 +17,9 @@ const Home = () => {
     <div>
       <h2>Home</h2>
       <span>Trending Products</span>
-      <div>
+      <div className="product-grid">
         {trendingProducts?.map((product) => (
-          <div key={product.id}>
+          <div key={product.id} className="product-card">
             <Link to={`/products/${product.id}`}>
               <img src={product.thumbnail} alt={product.title} />
               <h3>{product.title}</h3>

@@ -6,7 +6,7 @@ const Breadcrumbs = () => {
   const pathnames = location.pathname.split("/").filter((x) => x);
   let breadcrumbPath = "";
   return (
-    <div>
+    <div className="breadcrumbs">
       <Link>Home</Link>
       {pathnames.map((name, index) => {
         breadcrumbPath += `/${name}`;
